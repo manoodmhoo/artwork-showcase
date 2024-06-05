@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { User } from './user.entity';
 import { AuthService } from './auth.service';
+import { Authorize } from 'src/authorize.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -13,6 +14,7 @@ export class AuthController {
     }
 
     @Get()
+    @UseGuards(Authorize)
     async getAllUser() {
         return await this.authService.getAllUser();
     }
