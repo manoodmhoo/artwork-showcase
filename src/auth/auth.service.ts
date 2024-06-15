@@ -12,10 +12,12 @@ require('dotenv').config();
 
 @Injectable()
 export class AuthService {
-    @InjectRepository(User)
-    private userRepository: MongoRepository<User>;
-
-    constructor(private artistService: ArtistService) {}
+     constructor(
+        @InjectRepository(User)
+        private userRepository: MongoRepository<User>,
+        @InjectRepository(Artist) 
+        private artistRepository: MongoRepository<Artist>,
+     ) { }
 
     async register(user: User) {
        const userVerify = await this.userRepository.findOne({
@@ -37,7 +39,9 @@ export class AuthService {
 
             if(newUser && newUser.role === 'artist') {
                console.log('newUser', newUser._id.toString());
-               const newArtist = await this.artistService.addArtist(newUser._id.toString());
+               const newArtist = await this.artistRepository.save({
+                    userId: newUser._id.toString(),
+               });
                
                if(newArtist) {
                     return newUser;

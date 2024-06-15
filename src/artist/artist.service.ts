@@ -5,8 +5,10 @@ import { MongoRepository } from 'typeorm';
 
 @Injectable()
 export class ArtistService {
-    @InjectRepository(Artist)
-    private artistRepository: MongoRepository<Artist>;
+    constructor(
+        @InjectRepository(Artist)
+        private artistRepository: MongoRepository<Artist>
+    ) { }
 
     async addArtist(id: string) {
         return await this.artistRepository.save({
@@ -17,4 +19,16 @@ export class ArtistService {
     async getAllArtists() {
         return await this.artistRepository.find();
     } 
+
+    async getArtistById(id: string) {
+
+    }
+
+    async getAwardsAll() {
+       
+    }
+
+    async getAllPartner() {
+
+    }
 }
