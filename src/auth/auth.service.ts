@@ -87,7 +87,7 @@ export class AuthService {
             token: token,
        }
 
-       return userAuthenticationInfo;
+       return { statusCode: 201, user: userAuthenticationInfo };
     } 
 
     async getAllUser() {
