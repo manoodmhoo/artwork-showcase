@@ -33,6 +33,7 @@ export class AuthService {
                 lastname: user.lastname,
                 email: user.email,
                 role: role,
+                imgPath: user.imgPath,
                 password: HashedPassword,
                 registerAt: new Date(),
             });
