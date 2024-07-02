@@ -45,10 +45,10 @@ export class AuthService {
                });
                
                if(newArtist) {
-                    return newUser;
+                    return { statusCode: 200, user: newUser };
                }
             } else {
-               return newUser;
+               return { statusCode: 200, user: newUser };
             }
 
        } else  {
@@ -56,7 +56,8 @@ export class AuthService {
             const msg = (response.statusMessage = 'This email has already been registered.');
             return status;
        }
-       return await this.userRepository.save(user);
+       const resultSave = await this.userRepository.save(user);
+       return { statusCode: 200, user: resultSave }
     }
 
     async login(user: User) {
