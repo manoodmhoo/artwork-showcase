@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { ArtworkService } from './artwork.service';
 import { Artwork } from './artwork.entity';
-import { Authorize } from 'src/authorize.guard';
+import { Authorize } from '../authorize.guard';
 
 @Controller('artwork')
 export class ArtworkController {
