@@ -8,7 +8,7 @@
     ],
     "routes": [
         {
-            "src": "/(.)",
+            "src": "/(.*)",
             "dest": "src/main.ts",
             "methods": [
                 "GET",
@@ -20,7 +20,7 @@
             ] 
         },
         {
-            "src": "/(.)",
+            "src": "/(.*)",
             "headers": 
             {
                 "Connection": "keep-alive",
