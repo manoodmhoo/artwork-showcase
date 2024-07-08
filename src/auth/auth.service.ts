@@ -52,9 +52,10 @@ export class AuthService {
             }
 
        } else  {
-            const status = response.status(422);
-            const msg = (response.statusMessage = 'This email has already been registered.');
-            return status;
+          return response.status(422).send('Your error message or object here');
+          //   const status = response.status(422);
+          //   const msg = (response.statusMessage = 'This email has already been registered.');
+          //   return status;
        }
        const resultSave = await this.userRepository.save(user);
        return { statusCode: 200, user: resultSave }
@@ -66,9 +67,7 @@ export class AuthService {
        });
 
        if (!userVerify) {
-            const status = response.status(422);
-            const msg = (response.statusMessage = 'This email has not been registered.');
-            return status;
+            return response.status(422).send('This email has not been registered.');
        }
 
        const passwordMatch = await bcrypt.compare(user.password, userVerify.password);
@@ -76,6 +75,7 @@ export class AuthService {
             const status = response.status(422);
             const msg = (response.statusMessage = 'Password does not match.');
             return status;
+            
        }
 
        const userId = userVerify._id.toString();
