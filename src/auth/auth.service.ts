@@ -33,7 +33,7 @@ export class AuthService {
                 lastname: user.lastname,
                 email: user.email,
                 role: role,
-                imgPath: user.imgPath,
+                imgPath: 'https://res.cloudinary.com/dxnkodqoi/image/upload/v1720441037/7309681_lpqway.jpg',
                 password: HashedPassword,
                 registerAt: new Date(),
             });
