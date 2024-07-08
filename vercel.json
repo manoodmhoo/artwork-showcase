@@ -20,7 +20,7 @@
             ] 
         },
         {
-            "src":"/api/(.)",
+            "src": "/(.)",
             "headers": 
             {
                 "Connection": "keep-alive",
