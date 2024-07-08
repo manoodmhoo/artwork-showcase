@@ -15,15 +15,10 @@
                 "POST",
                 "PUT",
                 "DELETE"
-            ] 
-        },
-        {
-            "src": "/(.*)",
-            "headers": 
-            {
-                "Connection": "keep-alive",
-                "Access-Control-Allow-Methods":"GET, POST, PATCH, PUT, DELETE,OPTIONS,FETCH",
-                "preflightContinue": "false",
+            ],
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
                 "Access-Control-Allow-Headers":"X-Requested-With, Access-Control-Allow-Origin, X-HTTP-Method-Override, Content-Type, Authorization, Accept",
                 "Access-Control-Allow-Credentials":"true",
                 "Access-Control-Max-Age": "86400"
